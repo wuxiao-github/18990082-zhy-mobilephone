@@ -1,0 +1,76 @@
+package com.example.work10.bean;
+
+
+import com.example.work10.R;
+
+import java.util.ArrayList;
+
+public class GoodInfo {
+    public long rowid; // 行号
+    public int sn; // 序号
+    public String name; // 名称
+    public String desc; // 描述
+    public float price; // 价格
+    public String thumb_path; // 小图的保存路径
+    public String pic_path; // 大图的保存路径
+    public int thumb; // 小图的资源编号
+    public int pic; // 大图的资源编号
+    public String eva;
+    public GoodInfo() {
+        rowid = 0L;
+        sn = 0;
+        name = "";
+        desc = "";
+        price = 0;
+        thumb_path = "";
+        pic_path = "";
+        eva="";
+        thumb = 0;
+        pic = 0;
+    }
+
+    // 声明一个手机商品的名称数组
+    private static String[] mNameArray = {
+            "iPhone8", "Mate10", "小米6", "魅族Pro6S","iPhone11","iPhone11","华为10Plus","华为荣耀9X"
+    };
+    // 声明一个手机商品的描述数组
+    private static String[] mDescArray = {
+            "Apple iPhone 8 256GB 玫瑰金色 移动联通电信4G手机",
+            "华为 HUAWEI Mate10 6GB+128GB 全网通（香槟金）",
+            "小米 MI6 全网通版 6GB+128GB 亮白色",
+            "魅族 PRO6S 4GB+64GB 全网通公开版 星空黑 移动联通电信4G手机",
+            "APPle iPhone 11 128G 白色 移动联通电信4G全网通手机 新包装",
+            "APPle iPhone 11 128G 绿色 移动联通电信4G全网通手机 旧包装",
+            "华为 HUAWEI 畅享10 Plus 6GB+128GB 天空之镜超清全视屏 移动联通电信4G手机",
+            "华为荣耀 9X 6GB+64GB 魅海蓝 移动联通电信4G手机全网通",
+    };
+    // 声明一个手机商品的价格数组
+    private static float[] mPriceArray = {6888, 3999, 2999, 2899, 2698, 2098,3000,2500};
+    // 声明一个手机商品的小图数组
+    private static int[] mThumbArray = {
+            R.drawable.iphone_s, R.drawable.huawei_s, R.drawable.xiaomi_s,
+            R.drawable.oppo_s, R.drawable.vivo_s, R.drawable.meizu_s,R.drawable.sanxing_s,
+            R.drawable.hongmi_s
+    };
+    // 声明一个手机商品的大图数组
+    private static int[] mPicArray = {
+            R.drawable.iphone, R.drawable.huawei, R.drawable.xiaomi,
+            R.drawable.oppo, R.drawable.vivo, R.drawable.meizu,R.drawable.sanxing,
+            R.drawable.hongmi
+    };
+
+    // 获取默认的手机信息列表
+    public static ArrayList<GoodInfo> getDefaultList() {
+        ArrayList<GoodInfo> goodsList = new ArrayList<GoodInfo>();
+        for (int i = 0; i < mNameArray.length; i++) {
+            GoodInfo info = new GoodInfo();
+            info.name = mNameArray[i];
+            info.desc = mDescArray[i];
+            info.price = mPriceArray[i];
+            info.thumb = mThumbArray[i];
+            info.pic = mPicArray[i];
+            goodsList.add(info);
+        }
+        return goodsList;
+    }
+}
